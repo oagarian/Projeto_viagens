@@ -45,8 +45,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           ),
           margin: EdgeInsets.all(16),
           child: Column(children: [
+          ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+            child: Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
+          ),
           
-          Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
           Column(
             children: [
               principalContainer(),
