@@ -31,10 +31,100 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   ListView listObjects() {
     return ListView(
         children: [
-          cardContainer()
+          destiny(),
+          cardContainer(),
+          fixedBar()
         ]
         
       );
+  }
+  Container fixedBar() {
+    return Container(
+      height: 57,
+      width: double.maxFinite,
+      color: Color.fromARGB(255, 247, 245, 245),
+
+      child: 
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.gps_off)),
+                Text("DESTAQUES", style: TextStyle(fontSize: 7))
+
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.luggage)),
+                Text("PACOTES", style: TextStyle(fontSize: 7))
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+                Text("PERFIL", style: TextStyle(fontSize: 7))
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+                Text("MAIS", style: TextStyle(fontSize: 7))
+              ],
+            )
+          ],
+        )
+    );
+  }
+  Card destiny() {
+    return Card(
+      
+      clipBehavior: Clip.antiAlias,
+      color: Colors.purple,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10)
+      ),
+
+      margin: EdgeInsets.all(16),
+
+      child: Row(children: [
+        SizedBox(width: 25,),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+          SizedBox(height:20),
+          Text("Top destinos \nmais buscados", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20, )),
+          SizedBox(height:5),
+          Text("Corre que tá rolando \nmuita promoção!!", style: TextStyle(color: Colors.white, fontSize: 14)),
+          SizedBox(height:5),
+          ElevatedButton(onPressed: () {}, 
+            style: ElevatedButton.styleFrom(
+              primary: Colors.yellow,
+
+            ),
+            child: 
+              Text("EU QUERO!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
+          ),
+          SizedBox(height:20),
+        ],),
+        SizedBox(width: 10),
+        Container(
+          
+          clipBehavior: Clip.none,
+          transformAlignment: Alignment.center,
+          transform: Matrix4.rotationZ(-2.1 /4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("Here the image"),
+            ],
+        
+          ),
+        )
+      ],)
+    );
   }
 
   Card cardContainer() {
@@ -45,7 +135,9 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           ),
           margin: EdgeInsets.all(16),
           child: Column(children: [
+          
           ClipRRect(
+            
             borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
             child: Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
           ),
