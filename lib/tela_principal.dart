@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -18,9 +20,10 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 246, 251, 247),
         appBar: AppBar(
+          elevation: 0,
           centerTitle: false,
           backgroundColor: Color.fromARGB(255, 16, 57, 123),
-          title: Text("Barra do app"),
+          title: Text("Pesquisar"),
         ),
         body: listObjects()
       ),
@@ -31,11 +34,56 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   ListView listObjects() {
     return ListView(
         children: [
+          firstNavigator(),
           destiny(),
           cardContainer(),
           fixedBar()
         ]
         
+      );
+  }
+  Container firstNavigator() {
+    return Container(
+        padding: EdgeInsets.only(left: 20, right: 20),
+        color: Color.fromARGB(255, 16, 57, 123),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    IconButton(onPressed: () {}, icon: Icon(Icons.hotel), color: Color.fromARGB(255, 197, 200, 249), iconSize: 30,),
+                    Text("HOTÉIS", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249))),
+
+                  ],
+                ),
+
+                Column(
+                  children: [
+                    IconButton(onPressed: () {}, icon: Icon(Icons.card_travel_outlined), color: Color.fromARGB(255, 197, 200, 249), iconSize: 30),
+                    Text("PACOTES", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249)))
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 45,
+              child: TextField(
+              decoration: InputDecoration(
+                labelText: "Pesquise um destino ou hotel",
+                prefixIcon: Icon(Icons.search),
+                fillColor: Colors.white,
+                filled: true,
+              ),
+            ),),
+            
+            
+            
+          ],
+        )
       );
   }
   Container fixedBar() {
@@ -51,20 +99,20 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           children: [
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.gps_off)),
-                Text("DESTAQUES", style: TextStyle(fontSize: 7))
+                IconButton(onPressed: () {}, icon: Icon(Icons.explore_outlined), color: Color.fromARGB(255, 232, 31, 125)),
+                Text("DESTAQUES", style: TextStyle(fontSize: 7, color: Color.fromARGB(255, 232, 31, 125)))
 
               ],
             ),
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.luggage)),
+                IconButton(onPressed: () {}, icon: Icon(Icons.card_travel_outlined)),
                 Text("PACOTES", style: TextStyle(fontSize: 7))
               ],
             ),
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+                IconButton(onPressed: () {}, icon: Icon(Icons.people_alt_outlined)),
                 Text("PERFIL", style: TextStyle(fontSize: 7))
               ],
             ),
@@ -104,50 +152,53 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               primary: Colors.yellow,
 
             ),
+            
             child: 
               Text("EU QUERO!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
           ),
           SizedBox(height:20),
         ],),
         SizedBox(width: 10),
-        Container(
-          
+
+        Expanded( child: Container(
           clipBehavior: Clip.none,
           transformAlignment: Alignment.center,
-          transform: Matrix4.rotationZ(-2.1 /4),
+          transform: Matrix4.rotationZ(-0.7 /4),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text("Here the image"),
+              Image.network("https://images.unsplash.com/photo-1683475962496-220b83c850a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80", height: 170,),
             ],
         
           ),
-        )
+        ))
       ],)
     );
   }
 
   Card cardContainer() {
     return Card(
+          
           color: Color.fromARGB(255, 255, 255, 255),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10)
           ),
           margin: EdgeInsets.all(16),
           child: Column(children: [
-          
-          ClipRRect(
             
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-            child: Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
-          ),
-          
-          Column(
-            children: [
-              principalContainer(),
-            ],
-          )
+            ClipRRect(
+              
+              borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+              child: Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
+            ),
+            
+            Column(
+              children: [
+                principalContainer(),
+              ],
+            )
           ],)
+          
         );
   }
 
