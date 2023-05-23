@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:projeto_interfaces/pacote_turistico.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
@@ -18,12 +19,12 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 246, 251, 247),
+        backgroundColor: const Color.fromARGB(255, 246, 251, 247),
         appBar: AppBar(
           elevation: 0,
           centerTitle: false,
-          backgroundColor: Color.fromARGB(255, 16, 57, 123),
-          title: Text("Pesquisar"),
+          backgroundColor: const Color.fromARGB(255, 16, 57, 123),
+          title: const Text("Pesquisar"),
         ),
         body: listObjects()
       ),
@@ -36,7 +37,14 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         children: [
           firstNavigator(),
           destiny(),
-          cardContainer(),
+          PacoteTuristico(
+            imageBackground: "https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60",
+            pacoteNome: "Pacote Cancún 2021",
+            inclusives: "Aéreo + Hotel All Inclusive",
+            diarias: 5,
+            pessoas: 1,
+            precoBase: "4.444",
+            precoFinal: "3.749"),
           fixedBar()
         ]
         
@@ -44,8 +52,8 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   }
   Container firstNavigator() {
     return Container(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        color: Color.fromARGB(255, 16, 57, 123),
+        padding: const EdgeInsets.only(left: 20, right: 20),
+        color: const Color.fromARGB(255, 16, 57, 123),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -54,22 +62,22 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
               children: [
                 Column(
                   children: [
-                    IconButton(onPressed: () {}, icon: Icon(Icons.hotel), color: Color.fromARGB(255, 197, 200, 249), iconSize: 30,),
-                    Text("HOTÉIS", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249))),
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.hotel), color: const Color.fromARGB(255, 197, 200, 249), iconSize: 30,),
+                    const Text("HOTÉIS", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249))),
 
                   ],
                 ),
 
                 Column(
                   children: [
-                    IconButton(onPressed: () {}, icon: Icon(Icons.card_travel_outlined), color: Color.fromARGB(255, 197, 200, 249), iconSize: 30),
-                    Text("PACOTES", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249)))
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.card_travel_outlined), color: const Color.fromARGB(255, 197, 200, 249), iconSize: 30),
+                    const Text("PACOTES", style: TextStyle(fontSize: 10, color: Color.fromARGB(255, 197, 200, 249)))
                   ],
                 ),
               ],
             ),
-            SizedBox(height: 20,),
-            SizedBox(
+            const SizedBox(height: 20,),
+            const SizedBox(
               height: 45,
               child: TextField(
               decoration: InputDecoration(
@@ -90,7 +98,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     return Container(
       height: 57,
       width: double.maxFinite,
-      color: Color.fromARGB(255, 247, 245, 245),
+      color: const Color.fromARGB(255, 247, 245, 245),
 
       child: 
         Row(
@@ -99,27 +107,27 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           children: [
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.explore_outlined), color: Color.fromARGB(255, 232, 31, 125)),
-                Text("DESTAQUES", style: TextStyle(fontSize: 7, color: Color.fromARGB(255, 232, 31, 125)))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.explore_outlined), color: const Color.fromARGB(255, 232, 31, 125)),
+                const Text("DESTAQUES", style: TextStyle(fontSize: 7, color: Color.fromARGB(255, 232, 31, 125)))
 
               ],
             ),
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.card_travel_outlined)),
-                Text("PACOTES", style: TextStyle(fontSize: 7))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.card_travel_outlined)),
+                const Text("PACOTES", style: TextStyle(fontSize: 7))
               ],
             ),
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.people_alt_outlined)),
-                Text("PERFIL", style: TextStyle(fontSize: 7))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.people_alt_outlined)),
+                const Text("PERFIL", style: TextStyle(fontSize: 7))
               ],
             ),
             Column(
               children: [
-                IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
-                Text("MAIS", style: TextStyle(fontSize: 7))
+                IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
+                const Text("MAIS", style: TextStyle(fontSize: 7))
               ],
             )
           ],
@@ -135,30 +143,30 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         borderRadius: BorderRadius.circular(10)
       ),
 
-      margin: EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
 
       child: Row(children: [
-        SizedBox(width: 25,),
+        const SizedBox(width: 25,),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          SizedBox(height:20),
-          Text("Top destinos \nmais buscados", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20, )),
-          SizedBox(height:5),
-          Text("Corre que tá rolando \nmuita promoção!!", style: TextStyle(color: Colors.white, fontSize: 14)),
-          SizedBox(height:5),
+          const SizedBox(height:20),
+          const Text("Top destinos \nmais buscados", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20, )),
+          const SizedBox(height:5),
+          const Text("Corre que tá rolando \nmuita promoção!!", style: TextStyle(color: Colors.white, fontSize: 14)),
+          const SizedBox(height:5),
           ElevatedButton(onPressed: () {}, 
             style: ElevatedButton.styleFrom(
-              primary: Colors.yellow,
+              backgroundColor: Colors.yellow,
 
             ),
             
             child: 
-              Text("EU QUERO!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
+              const Text("EU QUERO!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
           ),
-          SizedBox(height:20),
+          const SizedBox(height:20),
         ],),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
 
         Expanded( child: Container(
           clipBehavior: Clip.none,
@@ -176,97 +184,5 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     );
   }
 
-  Card cardContainer() {
-    return Card(
-          
-          color: Color.fromARGB(255, 255, 255, 255),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10)
-          ),
-          margin: EdgeInsets.all(16),
-          child: Column(children: [
-            
-            ClipRRect(
-              
-              borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-              child: Image.network("https://images.unsplash.com/photo-1682685796002-e05458d61f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60", scale: 1.2,),
-            ),
-            
-            Column(
-              children: [
-                principalContainer(),
-              ],
-            )
-          ],)
-          
-        );
-  }
-
-  Container principalContainer() {
-    return Container(
-              padding: EdgeInsets.all(8),
-              child:
-                Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text("Pacote Cancún 2021", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text("Aéreo + Hotel All Inclusive", style: TextStyle(color: Color.fromARGB(255, 74, 74, 74), fontSize: 14), ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    children: [
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Icon(Icons.sunny),
-                          Text(" "),
-                          Text("5 Diárias")
-                        ],
-                      ),
-                      SizedBox(width: 10,),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Icon(Icons.person),
-                          Text(" "),
-                          Text("1 Pessoa")
-                        ],
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 14,
-                  ),
-                  Row(children: [
-                    Text("A partir de ", style: TextStyle(fontSize: 13)),
-                    Text("R\$4.444 ", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-                  ],),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    children: [
-                      Text("R\$ 3.749", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold, color: Colors.deepOrange),),
-                      SizedBox(width: 10,),
-                      Text("Taxa Grátis em até 12x", style: TextStyle(color: Color.fromARGB(255, 74, 74, 74), fontSize: 14), )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 12,
-                  ),
-                  Text("Cancelamento Grátis!", style: TextStyle(fontSize: 13, color: Colors.green, fontWeight: FontWeight.bold)),
-                  SizedBox(
-                    height: 6,
-                  ),
-                ],
-              )
-            );
-  }
+  
 }
