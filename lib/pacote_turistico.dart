@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:projeto_interfaces/test_page.dart';
+import 'package:projeto_interfaces/pacote_detalhes.dart';
 
 class PacoteTuristico extends StatefulWidget {
   final String imageBackground;
@@ -22,7 +22,7 @@ class _PacoteTuristicoState extends State<PacoteTuristico> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => TestPage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPackage()));
       },
       child: 
       cardContainer(
