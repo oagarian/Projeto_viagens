@@ -169,7 +169,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         const SizedBox(width: 10),
 
         Expanded( child: Container(
-          clipBehavior: Clip.none,
+          //clipBehavior: Clip.none,
           transformAlignment: Alignment.center,
           transform: Matrix4.rotationZ(-0.7 /4),
           child: Column(
