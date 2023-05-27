@@ -11,18 +11,25 @@ class PacoteTuristico extends StatefulWidget {
   final int pessoas;
   final String precoBase;
   final String precoFinal;
-  const PacoteTuristico({super.key, required this.imageBackground, required this.pacoteNome, required this.inclusives, required this.diarias, required this.pessoas, required this.precoBase, required this.precoFinal});
+  final String dataInicio;
+  final String dataFim;
+  final int desconto;
+  const PacoteTuristico({super.key, required this.imageBackground, required this.pacoteNome, required this.inclusives, required this.diarias, required this.pessoas, required this.precoBase, required this.precoFinal, required this.dataInicio, required this.dataFim, required this.desconto});
 
   @override
   State<PacoteTuristico> createState() => _PacoteTuristicoState();
 }
 
+
+
 class _PacoteTuristicoState extends State<PacoteTuristico> {
+  
   @override
   Widget build(BuildContext context) {
+    
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPackage()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPackage( image: widget.imageBackground, pacoteNome: widget.pacoteNome, inclusive: widget.inclusives, diarias: widget.diarias, dataInicio: widget.dataInicio, dataFim: widget.dataFim, desconto: widget.desconto, precoBase: widget.precoBase, precoMenor: widget.precoFinal,)));
       },
       child: 
       cardContainer(
