@@ -44,14 +44,9 @@ class _DetailsPackageState extends State<DetailsPackage> {
 ) {
     bool liked = false;
     return SafeArea(
-<<<<<<< HEAD
         child: Hero(
           tag: 'HeroTransition',
           child: Scaffold(
-=======
-        child: Scaffold(
-          backgroundColor: Color.fromARGB(225, 246, 251, 247),
->>>>>>> 367743b3759a795c6209a5f88b7143d3a316f7ec
           extendBodyBehindAppBar: true,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(50),
