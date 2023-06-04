@@ -44,7 +44,11 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             diarias: 5,
             pessoas: 1,
             precoBase: "4.444",
-            precoFinal: "3.749"),
+            precoFinal: "3.749",
+            dataFim: "30 nov. 21",
+            dataInicio: "01 ago. 21",
+            desconto: 45,
+            ),
           fixedBar()
         ]
         
@@ -169,7 +173,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
         const SizedBox(width: 10),
 
         Expanded( child: Container(
-          clipBehavior: Clip.none,
+          //clipBehavior: Clip.none,
           transformAlignment: Alignment.center,
           transform: Matrix4.rotationZ(-0.7 /4),
           child: Column(
