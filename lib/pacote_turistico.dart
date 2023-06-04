@@ -24,15 +24,18 @@ class _PacoteTuristicoState extends State<PacoteTuristico> {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPackage()));
       },
-      child: 
-      cardContainer(
-      imageBackground: widget.imageBackground, 
-      pacoteNome: widget.pacoteNome, 
-      inclusives: widget.inclusives, 
-      diarias: widget.diarias, 
-      pessoas: widget.pessoas, 
-      precoBase: widget.precoBase, 
-      precoFinal: widget.precoFinal
+      child: Hero(
+        tag: 'HeroTransition',
+        child:
+          cardContainer(
+          imageBackground: widget.imageBackground, 
+          pacoteNome: widget.pacoteNome, 
+          inclusives: widget.inclusives, 
+          diarias: widget.diarias, 
+          pessoas: widget.pessoas, 
+          precoBase: widget.precoBase, 
+          precoFinal: widget.precoFinal
+          ),
       ),
     );
   }

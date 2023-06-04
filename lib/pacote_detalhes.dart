@@ -14,7 +14,9 @@ class DetailsPackage extends StatefulWidget {
 
 SafeArea BuildPage(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
+        child: Hero(
+          tag: 'HeroTransition',
+          child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(50),
@@ -76,6 +78,7 @@ SafeArea BuildPage(BuildContext context) {
               ),
             )
           ]),
+        ),
         ),
       );
   }
